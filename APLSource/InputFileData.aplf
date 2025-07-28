@@ -1,0 +1,6 @@
+ InputFileData←{
+     d←A.Render BuildTemplate 0
+     i←d ⎕NPUT ⍵
+     i
+
+ }

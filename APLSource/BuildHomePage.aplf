@@ -1,0 +1,25 @@
+ BuildHomePage←{
+     a←BuildTemplate 0
+     x←A.GetMain a
+     e←x A.New'div'
+     e.class←'cas'
+     p←e A.New'picture'
+     p.class←'first_pic'
+     q←p A.New'source'
+     q.srcset←'siteImages/darkmodeCAS.svg'
+     q.media←'(prefers-color-scheme: dark)'
+     q.width←'700rem'
+     q.height←'260rem'
+     r←p A.New'img'
+     r.src←'siteImages/cas_logo_light.svg'
+     r.width←'700rem'
+     r.height←'260rem'
+     s←e A.New'p'
+     s.class←'cas-info'
+     b←x A.New'div'
+     b.class←'deck'
+     c←CreateFeatureCard'DataIntegrity'
+     b.Content←c
+     a
+
+ }

@@ -1,0 +1,5 @@
+ BuildFolder←{
+     p←⍵
+     d←⎕MKDIR p
+     d
+ }

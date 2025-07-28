@@ -1,0 +1,7 @@
+ SaveAs←{
+
+ ⍝ ⍺ is a document
+ ⍝ ⍵ is a file name
+     (A.DOM2HTML ⍺)⎕NPUT ⍵
+
+ }

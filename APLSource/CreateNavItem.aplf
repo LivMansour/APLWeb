@@ -1,0 +1,7 @@
+ CreateNavItem←{
+     (n h c)←⍵
+     a←⍺ A.New'a'n
+     a.href←h
+     a.class←c
+     a
+ }

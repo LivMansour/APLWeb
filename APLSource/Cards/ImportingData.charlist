@@ -1,0 +1,36 @@
+# Importing Data
+
+Built in ETL makes it easy to get data into CAS from spreadsheets, databases, and flat
+files. When updating existing data, know exactly how many loan numbers match,
+identify duplicates, and much more.
+
+Importing data from spreadsheets and CSV files and other sources can be painful
+and time-consuming without the right tool set. Loan numbers may have lost their
+leading zeros in an Excel spreadsheet, and don't match up to your data. Dates can be
+in a variety of formats, sometimes in the same column. Rates may be in decimal rather
+than percentage form. Coded fields need to be mapped to your internal standards. Some
+columns are missing and need to be computed or defaulted. The issues and problems are
+endless.
+
+CAS's built-in ETL facility has been honed and refined over many years to provide just
+the right set of tools and information at hand to make importing a breeze.
+
+CAS provides a view of the source data, the transformation, and potential target data,
+allowing you to easily change column names and data types and content to convert data to
+your own standards. CAS gives you an overview of the entire transformation table, or a
+detail view of single source column and its transformation.
+
+When importing into a target dataset, lookup keys composed of single or multiple columns
+may be defined on the fly. Based on key uniqueness, CAS can perform one-to-one updates,
+one-to-many updates, and gracefully handles many-to-one, and many-to-many situations.
+CAS tells you how many rows match, how many source rows were not found, and how many
+target rows were not found. CAS provides detailed information on exactly which columns
+of which target rows have will be changed, showing before and after values.
+
+The value of fully integrated ETL in one unified system cannot be overstated. Importing
+and transforming data is not a one-off task for the mortgage analyst. It is an everyday
+task mixed in with data querying, analyzing, modelling and reporting. Often data must be
+cleaned and polished at the last minute before reporting, as the full knowledge of the
+data and requirements are not known at ETL time. Having the exact same tool set for ETL,
+reporting and modelling is invaluable. Many other tools fully separate these tasks,
+requiring different sub systems, syntax, languages and concepts.

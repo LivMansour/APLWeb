@@ -1,0 +1,9 @@
+ BuildTCGsite←{
+     f←'/Users/oliviamansour/WebSiteOutput'
+     a←1 ⎕NDELETE f
+     _←BuildFolder f
+     d←BuildTemplate 0
+     d SaveAs f,'/index.html'
+
+
+ }

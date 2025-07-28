@@ -1,6 +1,6 @@
  NewHeader←{
-     New←#.Abacus.Main.New
-     h←New'header'
-     a←h New'a'
+
+     h←A.New'header'
+     a←h A.New'a'
      h
  }

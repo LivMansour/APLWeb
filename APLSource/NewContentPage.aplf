@@ -1,11 +1,10 @@
  NewContentPage←{
      (t i c)←⍵
-     New←#.Abacus.Main.New
-     d←New'html'
-     h←d New'h1't
-     p←d New'picture'
-     s←p New'source'
-     i←p New'img'
+     d←A.New'html'
+     h←d A.New'h1't
+     p←d A.New'picture'
+     s←p A.New'source'
+     i←p A.New'img'
      i.width←'120rem'
      i.height←'120rem'
      d
