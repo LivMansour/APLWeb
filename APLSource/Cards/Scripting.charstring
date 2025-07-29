@@ -1,0 +1,21 @@
+# Scripting
+
+CAS is fully programmable. The CAS Object Model provides access
+to all CAS functionality via scripting to automate repetitive tasks.
+
+While CAS provides a rich graphical user interface, it is often
+useful to write scripts to automate repetitive tasks or to batch
+together are series of operations.
+
+All of the functionality of CAS may be driven programmatically
+through an object model. You can import data, run calculations,
+combine files, run reports and analyses and export data all in
+one click. Scripts can be executed on demand or run unattended
+at specific times.
+
+CAS scripting uniquely includes the ability to specify user
+interaction in the form of a wizard. A script can present a
+multi-step dialog box to the user, allowing specific input and
+control flow, and giving feedback at each step. The wizard
+provides the ability to move forward and backwards in the script,
+giving users confidence in their input and choices.

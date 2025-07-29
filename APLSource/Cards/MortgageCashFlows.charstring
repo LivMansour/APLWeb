@@ -1,0 +1,173 @@
+# Mortgage Cash Flows
+
+CAS includes a built-in cash-flow engine that generates flows,
+computes prices and yields at the loan level or on a grouped or
+aggregated basis. The cash-flow engine models fixed and adjustable
+rate loans, interest-only and step loans, and much more.
+
+CAS includes a set of functions for generating and analyzing
+residential mortgage cash flows. The primary function is
+mortgageCashFlow, which provides a wide range of inputs and
+comprehensive set of outputs. In addition there is
+mortgageCashFlowPrice, mortgageCashFlowYield, and
+mortgageCashFlowPresentValue, for computing prices, yields, and
+present values respectively.
+
+The mortgageCashFlow function takes a property space as input,
+and returns a property space as output. A simple example will
+make this clear. Here is the Columns property of an ungrouped
+query for loan level pricing:
+
+.\tName\tExpression
+1\tInput\tnewProperySpace 0
+2\tInput.Balance\tCurrentBalance
+3\tInput.Term\tMaturityDate monthsDifference AsOfDate
+4\tInput.Rate\tRate
+5\tInput.ServiceFee\t.5
+6\tInput.StatedPrice\t97
+7\tOutput\tmorgageCashFlow Input
+8\tCashFlow\tOutput.CashFlow Input
+9\tComputedYield\tOutput.Computed Yield
+10\tTotalInterest\tsum CashFlow.Scheduledinterest
+11\tComputed Yield2\t102 Input.Balance mortgageCashFlowYield CashFlow.CashFlow
+12\tPVofServicing\tmortgageCashFlowPresentValue (-CashFlow.ServiceFeeIncome)
+
+The first line establishes a new property space to collect the
+inputs to the cash flow function.
+
+The next five lines [2-6] define some inputs. An input may be the
+name of a column, an expression, or a constant. There are over 40
+named inputs, all which have default values so you only need to
+specify the ones you want.
+
+Once the desired inputs are defined in the property space, the
+mortgageCashFlow function is called on line 7, with the property
+space as its argument.
+
+The explicit result of the function is also a property space,
+which contains all of the named outputs of the function. One of
+the named outputs (CashFlow) is itself a property space. We pull
+this up a level on line 8 to make it easier to access later. On
+line 9 we extract and round the ComputedYield output, to return
+it in the query result.
+
+On line 10 we extract and sum the ScheduledInterest output. Note
+that aggregation is required as ScheduledInterest is a partitioned
+column - there is a list of monthly interest payments for each loan.
+
+On line 11, we compute an additional yield for a different price
+of 102. The cashflow function itself computes one yield based
+on the StatedPrice input and the TotalCash output. However, the
+mortgageCashFlowYield function allows computing multiple yields
+on any flows or functions of those flows. Similar functionality
+exists for price given yield.
+
+On line 12 we compute the present value of the service fee income
+at 4%.
+
+For grouped queries the inputs must be aggregated, and potentially
+rounded, and specified in the Measures property of the query.
+For example:
+
+.\tName\tExpression
+1\tInput\tnewProperySpace 0
+2\tInput.Balance\tsum CurrentBalance
+3\tInput.Term\tfound average MaturityDate monthsDifference AsOfDate
+4\tInput.Rate\tweightedAverage Rate CurrentBalance
+5\tCashFlow\tmortgageCashFlow Input
+6\tComputedYield\t95 Input.Balance mortageCashFlowYield CashFlow.TotalFlow
+
+On line 1, a new property space is defined, as in the above
+example. On line 2, however, we must sum the current balance
+column. Similarly for lines 3 and 4, we must aggregate the inputs
+as the query is grouped, and we are running cash flows on each
+group, not on each mortgage.
+
+Time-Varying Inputs
+
+There are five "scenario" inputs to the cashflow function for
+prepayment rates, default rates, loss severity, and delinquency,
+and index. These inputs may be scalar, simple, enclosed, or
+partitioned. These inputs must be adjusted for loan age upon or
+before assignment; the mortageCashFlow function itself has no
+knowledge of age and makes no adjustment for it.
+
+Andrew Davidson & Company's LoanDynamics Model
+
+CAS provides access to the LoanDynamics Model (LDM) from Andrew
+Davidson & Company (AD&Co) through the loanDynamicsModel function.
+Outputs from LDM may then be used to specify inputs to the
+mortgageCashFlow function. Outputs from LDM that are useful for
+inputs to mortgageCashFlow include prepayment rate vectors,
+default rate vectors, and loss severity vectors. You will need
+a license (and key) from AD&Co in order to use this feature.
+
+
+The loanDyamicsModel takes a property space as an argument. It
+must include the minimum necessary LDM inputs:
+
+.\tName\tExpression
+1\tLDM\tnewProperySpace 0
+2\tLDM.ADCOFolder\t"c:\\ADCO"
+3\tLDM.FirstForecastYear\t2024
+4\tLDM.FirstForecastMonth\t9
+5\tLDM.WaclsFixed\t1
+6\tLDM.Age\tAge
+7\tLDM.RemainingTerm\tRemTerm
+8\tLDM.OriginalTerm\tOrigTerm
+9\tLDMOutput\tloanDyamicsModel LDM
+
+The output from the loanDyamicsModel function is also a property
+space, containing all of the outputs provided by LDM. These
+outputs are simply passed though as-is, with no transformations.
+To use them as inputs for mortgageCashFlow they may need to be
+modified. For example, below the LDM output MRR is converted to
+annual CPR, and LossSeverity is converted to a percentage:
+
+.\tName\tExpression
+1\tI\tnewProperySpace 0
+2\tI.Balance\tCurrentBalance
+3\tI.Term\tRemTerm
+4\tI.Rate\tRate
+5\tI.PrepaymentRateScenario\tsmmToCPR LDMOutput.MRR
+6\tI.LossSeverityScenario\t100 times LDMOutput.LossSeverity
+7\tI.LoanDynamicsOutput\tLDMOutput
+8\tCashFLow\tmortgageCashFlow I
+
+Note on line 7 that the entire LDM output property space is set
+as an input to mortgageCashFlow. This does not affect the cashflow model in any way; It ties the two models together only for displaying data in the Excel detail spreadsheet.
+
+The LoanDynamics model has many inputs, and the input names and
+interpretations may be different when compared to the FlipDB cash
+flow function and its inputs. These are entirely separate models,
+and the inputs to each model are strictly separated.
+
+For this reason, and for readability and flexibility, it is
+convenient to put the LDM input specification into its own
+expression set and to call it using the evaluateExpressionSet.
+
+Every value in the LDM input property space is assumed to be an
+input to the LDM model, If a name is misspelled, or not an LDM
+input, or an invalid value, an error is signalled.
+
+
+Excel Output
+
+Cashflow data, at the loan or aggregate level, can be exported
+to Excel in richly formatted sheets for further analysis,
+presentation, or presentation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+# Columnar Database
+
+At the heart of CAS is an in-memory columnar database optimized
+for full table scans and the reporting requirements of mortgage
+portfolios. Complex reports on millions of rows run in seconds.
+
+CAS is based on a proprietary in-memory columnar database management
+system. This provides unparalleled speed and flexibility for
+whole-table data manipulation that is the bread-and-butter of
+the mortgage analyst's task.
+
+Supporting the database management system is a unified vector
+query and programming language that backs up all of the features
+of CAS from importing, to report writing, to exporting, and
+general data analysis and modelling. When a column name is
+referenced in CAS, whether importing, exporting, querying,
+exception reporting, or any other task, you have all of the
+values of that column for every row in hand. So in addition to
+basic scalar operations like plus, minus or divide that you might
+use in an expression on the column, you can sum, reverse, rotate,
+lag, scan or any number of other vector operations on the entire
+column. This yields a much simpler yet much more powerful query
+syntax than SQL.
+
+Grouped queries create partitioned columns which may be
+aggregated, but grouping and aggregation are independent
+operations. This feature provides a lot of power and flexibility
+not found in SQL.
+
+

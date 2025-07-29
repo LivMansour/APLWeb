@@ -1,3 +1,28 @@
-This is the text for Data Integrity
-I can use more than one line but it is all one paragraph.
-hello world
+# Data Integrity
+
+Know instantly and exactly which loans have missing, incorrect
+or inconsistent data. Set up custom loan program guidelines to
+know which loans are eligible for specific programs. Produce summary
+and detailed exception reports i spreadsheets.
+
+Whenever data is received from an outside source, it is imperative
+that it can instantly be processed and verified.
+
+For example, is there a state column for the property address? Does
+it have a value? Is it a valid two-character postal code? Is it
+consistent with the provided zip code? If the loan has an adjustable
+rate, is a margin provided? These questions pile up across dozens if
+not hundreds of columns. They can vary based on the company, the product,
+the data source and many other factors. CAS makes it easy to create,
+manage, maintain and execute these questions on your data the moment
+you receive it. For each loan, you will know exactly which data problems
+or exceptions it has, and which data items contribute to those problems.
+And for each exception you will know exactly which loans have that
+particular problem.
+
+Results of this analysis can be reported and used internally in CAS,
+or automatically exported into richly formatted spreadsheets for other
+users, clients or business partners. In addition to basic data integrity,
+the same facility is used to test loans for program eligibility. For
+example, a loan program may require the LTV to be below a certain value,
+and only owner-occupied properties, and so on.

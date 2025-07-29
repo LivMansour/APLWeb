@@ -1,0 +1,31 @@
+#Mortgage Functions
+
+In addition to the full complement of general financial functions
+found in typical spreadsheet applications, CAS provides a
+comprehensive set of mortgage-specific functions for computing
+everything from agency loan limits to delinquency status.
+
+CAS provides a rich collection of mortgage-specific functions.
+These include functions to compute:
+
+Average Life
+Balance
+Convexity
+Duration
+Modififed Duration
+Present Value
+Price
+Yield
+CPR
+Payment
+Rate
+Term
+
+Many of these functions are provided in two varieties, using
+scalar and vector solutions. For example, a yield can be computed
+given a price, a rate, a term, and a CPR, or it can be more
+generally computed given a price, a starting balance, and vector
+of cashflows (often produced by the cashflow function). In
+addition, there are functions to generate PSA and SDA curves,
+compute delinquency status from payment history strings, and
+validate payment history strings.

@@ -1,0 +1,28 @@
+# Reporting
+
+Unparalleled reporting power and flexibility for slicing, dicing
+and ranging mortgage collateral. Built-in functions make it easy
+to compute things like weighted averages, complex percentages and
+much more. Users have complete control over formats, titles and
+decimal places.
+
+CAS is extremely fast and efficient at producing reports for bankers
+and traders. Portfolio reporting requires repeated full-table scans
+and aggregations, and CAS's proprietary columnar database makes these
+run virtually instantly.
+
+In addition to standard grouping on the unique values of a column
+or set of columns, CAS provides easy ranging and bucketing of
+numeric temporal columns. CAS also provides unique features for
+partitioning by arbitrary Boolean statements.
+
+CAS's rich set of aggregate, scalar, and uniform functions
+simplifies producing complex reports. CAS includes all of the
+functions found in popular spreadsheets, as well as many that are
+industry-specific, and many more that just simplify work like
+computing weighted averages and percentages.
+
+Reports are fully user-defined and customizable, so constantly
+changing business rules and requirements are easily handled by
+the analyst in real time. Reports may be generated as PDF's, HTML,
+or exported into Excel.

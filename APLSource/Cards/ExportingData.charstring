@@ -1,0 +1,16 @@
+# Exporting Data
+
+Export data in a variety of formats including CSV and Excel files,
+for your internal systems or external business partners.
+
+CAS supports exporting data to ODBC data sources, CSV files,
+spreadsheets, and fixed-width text files.
+
+When exporting data, CAS makes it easy to specify column names,
+compute and transform columns, map values, default missing values,
+specify formats, and select specific rows and columns. In addition
+to exporting tabular data, CAS can export reports into richly
+formatted spreadsheets.
+
+CAS lets you create and store multiple export formats for easy
+re-use.                 

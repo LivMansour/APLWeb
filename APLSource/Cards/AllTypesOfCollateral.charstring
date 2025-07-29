@@ -1,0 +1,32 @@
+# All Types of Collateral
+
+CAS is used for all types of collateral including residential
+and commercial mortgages, boat loans, auto loans, equipment
+leases and credit card receivables.
+
+CAS was born in the secondary markets of the residential mortgage
+industry, and this very fact led to the development of a
+generalized tool suitable for all types of collateral and,
+indeed, data analysis of generic tabular data, from baseball
+statistics to HTTP log files.
+
+Residential mortgage data, to this day, is stored and transferred
+in a virtually infinite variety of formats. This is true despite
+massive and costly efforts to standardize data in XML.
+
+This plethora of data formats, combined with the ever-increasing
+variety of mortgage products, all multiplied by the different
+types of industry players, meant that CAS needed to have the
+flexibility of a spreadsheet, allowing analysts to do just-in-time
+column naming, formatting, calculations, and reporting.
+
+To manage this flexibility, and not have it devolve into the
+common problem of spreadsheet chaos, CAS provides both the
+structure of a database management system and the tools necessary
+to coordinate work across analysts and the enterprise. These
+tools allow the team to ensure that data, calculations, and
+reports are defined consistently.
+
+Thus CAS provides the analyst the ability to handle constantly
+changing business requirements in real time and, simultaneously,
+the enterprise the ability to ensure consistency and accountability.
