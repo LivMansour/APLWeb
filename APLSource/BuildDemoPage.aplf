@@ -1,0 +1,48 @@
+ BuildDemoPage←{
+     a←BuildTemplate 0
+     x←A.GetMain a
+     b←x A.New'h1' 'Request A Demo'
+     c←x A.New'form'
+     c.id←'RequestADemoForm'
+     d←c A.New'div'
+     d.class←'form-errors'
+     e←d A.New'ul'
+     f←e A.New'li' 'Error message'
+     g←c A.New'div'
+     g.class←'inputParent'
+     h←g A.New'label' 'Name'
+     i←g A.New'input'
+     i.type←'text'
+     i.name←'name'
+     j←c A.New'div'
+     j.class←'inputParent'
+     k←j A.New'label' 'Company'
+     l←j A.New'input'
+     l.type←'text'
+     l.name←'companyName'
+     m←c A.New'div'
+     m.class←'inputParent'
+     n←m A.New'label' 'Email'
+     o←m A.New'input'
+     o.type←'email'
+     o.name←'email'
+     p←c A.New'div'
+     p.class←'inputParent'
+     q←p A.New'label' 'Message'
+     r←p A.New'textarea'
+     r.name←'comments'
+     s←A.New'button' 'Send Request'
+     s.type←'submit'
+     s.name←'btnSubmit'
+     s.id←'btnSubmit'
+     s.class←'Request_btn'
+     a
+
+
+
+
+
+
+
+
+ }

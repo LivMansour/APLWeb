@@ -1,0 +1,56 @@
+ BuildLogInPage←{
+     a←BuildTemplate 0
+     x←A.GetMain a
+     b←x A.New'h1' 'Log In'
+     b.class←'title'
+     c←x A.New'form'
+     c.id←'userLogin'
+     d←c A.New'div'
+     d.class←'form-errors'
+     e←d A.New'ul'
+     f←e A.New'li' 'Error message'
+     g←c A.New'div'
+     g.class←'inputParent'
+     h←g A.New'label' 'Email:'
+     i←g A.New'input'
+     i.type←'email'
+     i.name←'identity'
+     j←c A.New'div'
+     j.class←'inputParent'
+     k←j A.New'label' 'Password:'
+     l←j A.New'input'
+     l.type←'password'
+     l.name←'credential'
+     m←c A.New'div'
+     m.class←'inputParent'
+     n←m A.New'label' 'Keep Me Logged In'
+     n.class←'box'
+     o←m A.New'input'
+     o.type←'checkbox'
+     o.value←'y'
+     o.name←'autologin'
+     o.class←'check'
+     p←c A.New'button' 'Sign In'
+     p.type←'submit'
+     p.name←'btnSubmit'
+     p.class←'Request_btn'
+     q←x A.New'p' 'No Account?'
+     q.class←'questions'
+     r←q A.New'a' 'Register Now'
+     r.href←'#register'
+     r.class←'References'
+     s←x A.New'p'
+     s.class←'questions'
+     t←s A.New'a' 'Forgot Password?'
+     t.href←'forgot_password.html'
+     t.class←'References'
+     a
+
+
+
+
+
+
+
+
+ }

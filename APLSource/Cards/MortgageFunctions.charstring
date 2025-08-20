@@ -8,18 +8,18 @@ everything from agency loan limits to delinquency status.
 CAS provides a rich collection of mortgage-specific functions.
 These include functions to compute:
 
-Average Life
-Balance
-Convexity
-Duration
-Modififed Duration
-Present Value
-Price
-Yield
-CPR
-Payment
-Rate
-Term
+-Average Life
+-Balance
+-Convexity
+-Duration
+-Modififed Duration
+-Present Value
+-Price
+-Yield
+-CPR
+-Payment
+-Rate
+-Term
 
 Many of these functions are provided in two varieties, using
 scalar and vector solutions. For example, a yield can be computed

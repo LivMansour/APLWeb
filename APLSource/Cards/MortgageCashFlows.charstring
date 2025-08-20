@@ -18,19 +18,20 @@ and returns a property space as output. A simple example will
 make this clear. Here is the Columns property of an ungrouped
 query for loan level pricing:
 
-.\tName\tExpression
-1\tInput\tnewProperySpace 0
-2\tInput.Balance\tCurrentBalance
-3\tInput.Term\tMaturityDate monthsDifference AsOfDate
-4\tInput.Rate\tRate
-5\tInput.ServiceFee\t.5
-6\tInput.StatedPrice\t97
-7\tOutput\tmorgageCashFlow Input
-8\tCashFlow\tOutput.CashFlow Input
-9\tComputedYield\tOutput.Computed Yield
-10\tTotalInterest\tsum CashFlow.Scheduledinterest
-11\tComputed Yield2\t102 Input.Balance mortgageCashFlowYield CashFlow.CashFlow
-12\tPVofServicing\tmortgageCashFlowPresentValue (-CashFlow.ServiceFeeIncome)
+|.|Name|Expression|
+|-|----|----------|
+|1|Input|newProperySpace 0|
+|2|Input.Balance|CurrentBalance|
+|3|Input.Term|MaturityDate monthsDifference AsOfDate|
+|4|Input.Rate|Rate|
+|5|Input.ServiceFee|.5|
+|6|Input.StatedPrice|97|
+|7|Output|morgageCashFlow Input|
+|8|CashFlow|Output.CashFlowInput|
+|9|ComputedYield|Output.Computed Yield|
+|10|TotalInterest|sum CashFlow.Scheduledinterest|
+|11|Computed Yield2|102 Input.Balance mortgageCashFlowYield CashFlow.CashFlow|
+|12|PVofServicing|mortgageCashFlowPresentValue (-CashFlow.ServiceFeeIncome)|
 
 The first line establishes a new property space to collect the
 inputs to the cash flow function.
@@ -69,13 +70,14 @@ For grouped queries the inputs must be aggregated, and potentially
 rounded, and specified in the Measures property of the query.
 For example:
 
-.\tName\tExpression
-1\tInput\tnewProperySpace 0
-2\tInput.Balance\tsum CurrentBalance
-3\tInput.Term\tfound average MaturityDate monthsDifference AsOfDate
-4\tInput.Rate\tweightedAverage Rate CurrentBalance
-5\tCashFlow\tmortgageCashFlow Input
-6\tComputedYield\t95 Input.Balance mortageCashFlowYield CashFlow.TotalFlow
+|.|Name|Expression|
+|-|----|----------|
+|1|Input|newProperySpace 0|
+|2|Input.Balance|sum CurrentBalance|
+|3|Input.Term|found average MaturityDate monthsDifference AsOfDate|
+|4|Input.Rate|weightedAverage Rate CurrentBalance|
+|5|CashFlow|mortgageCashFlow Input|
+|6|ComputedYield|95 Input.Balance mortageCashFlowYield CashFlow.TotalFlow|
 
 On line 1, a new property space is defined, as in the above
 example. On line 2, however, we must sum the current balance
@@ -106,16 +108,16 @@ a license (and key) from AD&Co in order to use this feature.
 The loanDyamicsModel takes a property space as an argument. It
 must include the minimum necessary LDM inputs:
 
-.\tName\tExpression
-1\tLDM\tnewProperySpace 0
-2\tLDM.ADCOFolder\t"c:\\ADCO"
-3\tLDM.FirstForecastYear\t2024
-4\tLDM.FirstForecastMonth\t9
-5\tLDM.WaclsFixed\t1
-6\tLDM.Age\tAge
-7\tLDM.RemainingTerm\tRemTerm
-8\tLDM.OriginalTerm\tOrigTerm
-9\tLDMOutput\tloanDyamicsModel LDM
+|.|Name|Expression|
+|1|LDM|newProperySpace 0|
+|2|LDM.ADCOFolder|"c:\\ADCO"|
+|3|LDM.FirstForecastYear|2024|
+|4|LDM.FirstForecastMonth|9|
+|5|LDM.WaclsFixed|1|
+|6|LDM.Age|Age|
+|7|LDM.RemainingTerm|RemTerm|
+|8|LDM.OriginalTerm|OrigTerm|
+|9|LDMOutput|loanDyamicsModel LDM|
 
 The output from the loanDyamicsModel function is also a property
 space, containing all of the outputs provided by LDM. These
@@ -124,15 +126,16 @@ To use them as inputs for mortgageCashFlow they may need to be
 modified. For example, below the LDM output MRR is converted to
 annual CPR, and LossSeverity is converted to a percentage:
 
-.\tName\tExpression
-1\tI\tnewProperySpace 0
-2\tI.Balance\tCurrentBalance
-3\tI.Term\tRemTerm
-4\tI.Rate\tRate
-5\tI.PrepaymentRateScenario\tsmmToCPR LDMOutput.MRR
-6\tI.LossSeverityScenario\t100 times LDMOutput.LossSeverity
-7\tI.LoanDynamicsOutput\tLDMOutput
-8\tCashFLow\tmortgageCashFlow I
+|.|Name|Expression|
+|-|----|----------|
+|1|I|newProperySpace 0|
+|2|I.Balance|CurrentBalance|
+|3|I.Term|RemTerm|
+|4|I.Rate|Rate|
+|5|I.PrepaymentRateScenario|smmToCPR LDMOutput.MRR|
+|6|I.LossSeverityScenario|100 times LDMOutput.LossSeverity|
+|7|I.LoanDynamicsOutput|LDMOutput|
+|8|CashFLow|mortgageCashFlow I|
 
 Note on line 7 that the entire LDM output property space is set
 as an input to mortgageCashFlow. This does not affect the cashflow model in any way; It ties the two models together only for displaying data in the Excel detail spreadsheet.
