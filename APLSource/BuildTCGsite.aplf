@@ -3,8 +3,12 @@
      f←'/Users/oliviamansour/WebSiteOutput'
      a←3 ⎕NDELETE f
      _←BuildFolder f
-     d←BuildTemplate 0
-     d SaveAs f,'/index.html'
-
+     d←BuildHomePage 0
+     e←d SaveAs f,'/index.html'
+     g←BuildCompanyPage 0
+     h←g SaveAs f,'/company.html'
+     i←BuildLogInPage 0
+     j←i SaveAs f,'/login.html'
+     f
 
  }

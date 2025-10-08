@@ -1,11 +1,14 @@
  CreateFeatureCard←{
-     (fileLink h2name info fcImageDarkMode fcImageLightMode)←⍵
+    ⍝  (fileLink h2name info fcImageDarkMode fcImageLightMode)←⍵
+     x←#.APLWeb.Cards⍎⍵
+     y←#.Abacus.Markdown.Parse x
+
      a←A.New'a'
-     a.href←fileLink
+     a.href←⍵,'.html'
      a.class←'click'
      b←a A.New'div'
      b.class←'featureCard'
-     z←1 ⎕C CreateH2 h2name
+     z←1 ⎕C CreateH2 ⍵
      c←b A.New'h2'z
      p←b A.New'picture'
      e←p A.New'source'
@@ -13,10 +16,11 @@
      e.media←'(prefers-color-scheme: dark)'
      e.class←'fcImage'
      f←p A.New'img'
-     f.src←fcImageLightMode
+     f.src←'/images/','⍵','lightmode.svg'
      f.class←'fcImage'
-     g←b A.New'p'info
+     g←2⊃y
      g.class←'know'
+     b.Content←b.Content,g
      a
 
  }
