@@ -9,6 +9,15 @@
      h←g SaveAs f,'/company.html'
      i←BuildLogInPage 0
      j←i SaveAs f,'/login.html'
+     ⍝k←BuildFeatureCardPage Cards.DataIntegrity
+     ⍝l←k SaveAs f,'/DataIntegrity.html'
+     m←BuildDemoPage 0
+     n←m SaveAs f,'/demo.html'
+     o←BuildRegisterPage 0
+     p←o SaveAs f,'/register.html'
+     q←BuildFeatureCardPage'DataIntegrity'
+     r←q SaveAs f,'/DataIntegrity.html'
+
      f
 
  }

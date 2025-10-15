@@ -1,0 +1,16 @@
+ BuildFeatureCardPage←{
+     ⍝ ⍵ is the card variable
+     x←#.APLWeb.Cards⍎⍵
+     y←#.Abacus.Markdown.Parse x
+
+     a←BuildTemplate 0
+     m←A.GetMain a
+     c←1⊃y
+     m.Content←m.Content,y
+
+     a
+
+
+
+
+ }
