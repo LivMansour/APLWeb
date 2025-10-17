@@ -17,6 +17,8 @@
      p←o SaveAs f,'/register.html'
      q←BuildFeatureCardPage'DataIntegrity'
      r←q SaveAs f,'/DataIntegrity.html'
+     s←BuildFeatureCardPage'ImportingData'
+     t←s SaveAs f,'/ImportingData.html'
 
      f
 
