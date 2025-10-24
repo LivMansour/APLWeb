@@ -1,0 +1,9 @@
+ CreateAndSave←{
+
+⍝  ⍵ is feature card
+     f←'/Users/oliviamansour/WebSiteOutput'
+     a←BuildFeatureCardPage ⍵
+     b←a SaveAs f,'/',⍵,'.html'
+     f
+
+ }

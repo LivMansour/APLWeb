@@ -15,10 +15,13 @@
      n←m SaveAs f,'/demo.html'
      o←BuildRegisterPage 0
      p←o SaveAs f,'/register.html'
-     q←BuildFeatureCardPage'DataIntegrity'
-     r←q SaveAs f,'/DataIntegrity.html'
-     s←BuildFeatureCardPage'ImportingData'
-     t←s SaveAs f,'/ImportingData.html'
+
+        ⍝ feature cards
+     q←CreateAndSave¨Cards.⎕NL ¯2
+
+
+     u←CSS 0
+     v←u ⎕NPUT f,'/style.css'
 
      f
 

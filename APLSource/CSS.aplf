@@ -1,0 +1,16 @@
+ CSS←{
+     Rule←#.Abacus.Main.NewRule
+     s←Rule''
+     r←s Rule'body'
+     r.font_size←'1rem'
+     r.margin←'2rem'
+
+     r←s Rule'h1'
+     r.font_size←'2rem'
+     r.padding←'0.5rem'
+
+     #.Abacus.Main.ComposeRules s
+
+
+
+ }
